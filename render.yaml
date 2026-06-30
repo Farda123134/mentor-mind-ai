@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: mentor-mind-ai
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python start.py
+    envVars:
+      - key: GROQ_KEY
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: DB_TYPE
+        value: postgresql
+      - key: JWT_SECRET
+        sync: false
+      - key: JWT_EXPIRE_MINS
+        value: "60"
+      - key: PYTHON_VERSION
+        value: "3.11.9"
